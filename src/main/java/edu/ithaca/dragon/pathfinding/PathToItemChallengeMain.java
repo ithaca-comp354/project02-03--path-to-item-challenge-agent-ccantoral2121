@@ -28,15 +28,15 @@ public class PathToItemChallengeMain {
         // System.out.println(PathToItemChallenge.pathToItemChallenge(pathFinders));
         
         //Create a grid and save it, choose my own start and end points
-        AreaGrid areaGrid = AreaGridFactory.createLoopyMaze(15, 15, 0.8);
-        JsonUtil.toJsonFile("src/test/resources/test2.json", new AreaGridRecord(areaGrid.gridCopy()));
-        System.out.println(areaGrid.createDisplayString());
-        System.out.println(PathToItemChallenge.pathToItemChallenge(pathFinders, areaGrid, new Location(1,1), new Location(8, 8)));
+        // AreaGrid areaGrid = AreaGridFactory.createLoopyMaze(15, 15, 0.1);
+        // JsonUtil.toJsonFile("src/test/resources/test3.json", new AreaGridRecord(areaGrid.gridCopy()));
+        // System.out.println(areaGrid.createDisplayString());
+        // System.out.println(PathToItemChallenge.pathToItemChallenge(pathFinders, areaGrid, new Location(1,1), new Location(8, 8)));
 
         // Load a saved grid, choose my own start and end points
-        // AreaGrid areaGrid = new AreaGrid(JsonUtil.fromJsonFile("src/test/resources/test1.json", AreaGridRecord.class).getGrid());
-        // System.out.println(areaGrid.createDisplayString());
-        // System.out.println(PathToItemChallenge.pathToItemChallenge(pathFinders, areaGrid, new Location(1,1), new Location(1, 13)));
+        AreaGrid areaGrid = new AreaGrid(JsonUtil.fromJsonFile("src/test/resources/test2.json", AreaGridRecord.class).getGrid());
+        System.out.println(areaGrid.createDisplayString());
+        System.out.println(PathToItemChallenge.pathToItemChallenge(pathFinders, areaGrid, new Location(1,1), new Location(8, 8)));
 
     }
 }
