@@ -68,52 +68,6 @@ public class BreadthFirstAgent implements GlobalPathFinder {
         
         return possPaths.remove();
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /* Location current = start; 
-        while (current != goal){
-            LocalSensor localSensor = map.createLocalSensor(start);
-            vLoc.add(localSensor.currentLocation());
-            current = localSensor.currentLocation();
-            for (int i = 0; i < localSensor.surroundingLocations().size(); i++) {
-                if((!vLoc.contains(current.get(i))) && (!localSensor.surroundingLocations().get(i).isWall())){
-                    List <Location> newPath = new ArrayList<>(vLoc);
-                    newPath.add(localSensor.surroundingLocations().get(i));
-                    if(localSensor.surroundingLocations().get(i).equals(goal)){
-                        possPaths.add(newPath);
-                        break;
-                    }
-                    possPaths.add(newPath);
-                }
-            }
-
-            int steps = possPaths.size();
-            vLoc = possPaths.remove();
-            current = vLoc.get(steps - 1);
-            
-            System.out.println(PathToItemChallenge.createDisplayString(Arrays.asList(vLoc), "x", map, start, goal));
-            System.out.println("Enter to continue: ");
-            new Scanner(System.in).nextLine();
-
-        }
-
-        for (int i = 0; i < possPaths.size(); i++) {
-            possPaths.remove();
-        }
-        
-        return possPaths.remove(); */
     }
 
     public static List<Location> noWalls(List<Location> possibleWays){
