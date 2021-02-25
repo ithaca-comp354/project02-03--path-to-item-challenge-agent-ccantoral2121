@@ -10,6 +10,7 @@ import edu.ithaca.dragon.pathfinding.areagrid.AreaGridFactory;
 import edu.ithaca.dragon.pathfinding.areagrid.Location;
 import edu.ithaca.dragon.pathfinding.challenge.PathToItemChallenge;
 import edu.ithaca.dragon.pathfinding.io.AreaGridRecord;
+import edu.ithaca.dragon.pathfinding.pathfinder.BreadthFirstAgent;
 //import edu.ithaca.dragon.pathfinding.pathfinder.BreadthFirstGlobalPathFinder;
 //import edu.ithaca.dragon.pathfinding.pathfinder.DepthFirstGlobalPathFinder;
 //import edu.ithaca.dragon.pathfinding.pathfinder.UseLocalForGlobalPathFinder;
@@ -21,7 +22,7 @@ import edu.ithaca.dragon.util.JsonUtil;
 public class PathToItemChallengeMain {
 
     public static void main(String[] args) throws IOException {
-        List<GlobalPathFinder> pathFinders = Arrays.asList(new DepthFirstAgent());
+        List<GlobalPathFinder> pathFinders = Arrays.asList(new BreadthFirstAgent());
         
         // Use the defaults
         // System.out.println(PathToItemChallenge.pathToItemChallenge(pathFinders));
