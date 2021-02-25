@@ -18,7 +18,7 @@ public class BreadthFirstAgent implements GlobalPathFinder {
     private List <Location> vLoc = new ArrayList<>(); 
     private List <Location> currentPath = new ArrayList<>();
     private Location current = new Location();
-    List<Location> surrondings = new ArrayList<Location>();
+    private List <Location> surrondings = new ArrayList<Location>();
 
     @Override
     public List<Location> findPath(AreaGrid map, Location start, Location goal) {
@@ -38,24 +38,36 @@ public class BreadthFirstAgent implements GlobalPathFinder {
 
             //Dequeue a current path list from the queue, 
             currentPath = possPaths.remove();
-
             //mark it as visited,
-            current = currentPath.get(currentPath.size()-1);
-            vLoc.add(current);
-            if (current.equals(goal)){
-                return currentPath;
+            current = currentPath.get(currentPath.size()-1); //current is a local location variable set to last location in the current path dequeued from possPaths
+            //while the location you are currently at has been visited, keep getting a new path from possPaths until you are at a location you never been before  
+            while(vLoc.contains(current)){
+                currentPath = possPaths.remove();
+                current = currentPath.get(currentPath.size()-1);
             }
-            surrondings = noWalls(map.createLocalSensor(current).surroundingLocations());
-            //enqueue all its adjacent nodes into a queue
+            vLoc.add(current);
+            System.out.println("current: " + current);
+            System.out.println("goal location: " + goal);
+            /* if (current.equals(goal)){
+                return currentPath;
+            } */
+            surrondings = noWalls(map.createLocalSensor(current).surroundingLocations()); // creates list of valid locations to move to 
+            //adds all valid locations into a copy path list
+            System.out.println("vLoc: " + vLoc);
             for (int i = 0; i < surrondings.size(); i++) {
                 if (!(vLoc.contains(surrondings.get(i)))){
+                    if(current.equals(goal)){
+                        System.out.println("current: " + current);
+                        return currentPath;
+                    }
                     List <Location> copyPath = new ArrayList<>(currentPath);
+                    //adding new location to copyPath then enqueuing copyPath to possPaths 
                     current = surrondings.get(i);
                     copyPath.add(current);
                     possPaths.add(copyPath);
                 }
             }
-        
+            System.out.println("current Path List:" + currentPath);
             System.out.println(PathToItemChallenge.createDisplayString(Arrays.asList(vLoc), "x", map, start, goal));
             System.out.println("Enter to continue: ");
             new Scanner(System.in).nextLine();
