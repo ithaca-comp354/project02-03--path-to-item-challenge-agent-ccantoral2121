@@ -22,21 +22,21 @@ import edu.ithaca.dragon.util.JsonUtil;
 public class PathToItemChallengeMain {
 
     public static void main(String[] args) throws IOException {
-        List<GlobalPathFinder> pathFinders = Arrays.asList(new BreadthFirstAgent());
+        List<GlobalPathFinder> pathFinders = Arrays.asList(new BreadthFirstAgent(), new DepthFirstAgent());
         
         // Use the defaults
         // System.out.println(PathToItemChallenge.pathToItemChallenge(pathFinders));
         
         //Create a grid and save it, choose my own start and end points
-        // AreaGrid areaGrid = AreaGridFactory.createLoopyMaze(15, 15, 0.1);
-        // JsonUtil.toJsonFile("src/test/resources/test3.json", new AreaGridRecord(areaGrid.gridCopy()));
+        // AreaGrid areaGrid = AreaGridFactory.createLoopyMaze(25, 25, 0.5);
+        // JsonUtil.toJsonFile("src/test/resources/test6.json", new AreaGridRecord(areaGrid.gridCopy()));
         // System.out.println(areaGrid.createDisplayString());
-        // System.out.println(PathToItemChallenge.pathToItemChallenge(pathFinders, areaGrid, new Location(1,1), new Location(8, 8)));
+        // System.out.println(PathToItemChallenge.pathToItemChallenge(pathFinders, areaGrid, new Location(1,1), new Location(23, 15)));
 
-        // Load a saved grid, choose my own start and end points
-        AreaGrid areaGrid = new AreaGrid(JsonUtil.fromJsonFile("src/test/resources/test2.json", AreaGridRecord.class).getGrid());
+        //Load a saved grid, choose my own start and end points
+        AreaGrid areaGrid = new AreaGrid(JsonUtil.fromJsonFile("src/test/resources/test6.json", AreaGridRecord.class).getGrid());
         System.out.println(areaGrid.createDisplayString());
-        System.out.println(PathToItemChallenge.pathToItemChallenge(pathFinders, areaGrid, new Location(1,1), new Location(8, 8)));
+        System.out.println(PathToItemChallenge.pathToItemChallenge(pathFinders, areaGrid, new Location(1,1), new Location(21, 1)));
 
     }
 }

@@ -46,18 +46,18 @@ public class BreadthFirstAgent implements GlobalPathFinder {
                 current = currentPath.get(currentPath.size()-1);
             }
             vLoc.add(current);
-            System.out.println("current: " + current);
-            System.out.println("goal location: " + goal);
+            //System.out.println("current: " + current);
+            //System.out.println("goal location: " + goal);
             /* if (current.equals(goal)){
                 return currentPath;
             } */
             surrondings = noWalls(map.createLocalSensor(current).surroundingLocations()); // creates list of valid locations to move to 
             //adds all valid locations into a copy path list
-            System.out.println("vLoc: " + vLoc);
+            //System.out.println("vLoc: " + vLoc);
             for (int i = 0; i < surrondings.size(); i++) {
                 if (!(vLoc.contains(surrondings.get(i)))){
                     if(current.equals(goal)){
-                        System.out.println("current: " + current);
+                        //System.out.println("current: " + current);
                         return currentPath;
                     }
                     List <Location> copyPath = new ArrayList<>(currentPath);
@@ -67,10 +67,10 @@ public class BreadthFirstAgent implements GlobalPathFinder {
                     possPaths.add(copyPath);
                 }
             }
-            System.out.println("current Path List:" + currentPath);
-            System.out.println(PathToItemChallenge.createDisplayString(Arrays.asList(vLoc), "x", map, start, goal));
-            System.out.println("Enter to continue: ");
-            new Scanner(System.in).nextLine();
+            //System.out.println("current Path List:" + currentPath);
+            // System.out.println(PathToItemChallenge.createDisplayString(Arrays.asList(vLoc), "x", map, start, goal));
+            // System.out.println("Enter to continue: ");
+            // new Scanner(System.in).nextLine();
 
         }
 

@@ -52,9 +52,9 @@ public class DepthFirstAgent implements GlobalPathFinder {
 
             surrondings.clear();
 
-            System.out.println(PathToItemChallenge.createDisplayString(Arrays.asList(locationsVisited), "x", map, start, goal));
-            System.out.print("Enter to continue:");
-            new Scanner(System.in).nextLine();
+            // System.out.println(PathToItemChallenge.createDisplayString(Arrays.asList(locationsVisited), "x", map, start, goal));
+            // System.out.print("Enter to continue:");
+            // new Scanner(System.in).nextLine();
     
 
 
